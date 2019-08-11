@@ -32,7 +32,7 @@ If you find PATT useful, please consider donating:
 - Firebase hosting, database and storage support. Firebase Functions with Typscript not included (there's a [template](https://github.com/firebase/functions-samples/tree/master/typescript-getting-started) for that already)
 - Multilingual i18n support.
 
-<img src="ComponentDiagram.png"
+<img src="docs/ComponentDiagram.png"
      alt="Components"/>
 
 <a name="requirements"></a>
