@@ -80,11 +80,9 @@ If you find PATT useful, please consider donating:
 
 6. Execute `npm install`.
 
-<a name="development-guide"></a>
+<a name="getting-started"></a>
 
-# Development Guide:
-
-## Getting Started:
+# Getting Started:
 
 ### Building the sample web app:
 
@@ -105,11 +103,11 @@ If you find PATT useful, please consider donating:
 
 ### Starting the local web development server:
 
-- In order to log in to the sample app provided you will need to create a test Firebase server
-
 `npm run start`
 
 - Notes:
+    - In order to log in to the sample app provided you will need to create a test Firebase server, see [Hosting](#hosting). After you have set up your test server you can copy the `firebase` settings to your local `static/config/dev/config.json` file.
+    - In order use the sample shakeout tests you will need to setup the appropriate rules in Firestore and Storage to allow read write access for logged in users.
     - Once you have built your application, this command will start a local web host at http://localhost:8080
     - The local webpack development server comes with an inbuilt hot loader and will reload as you make changes to your source code.
 
@@ -118,7 +116,7 @@ If you find PATT useful, please consider donating:
 `npm run start:android`
 
 - Notes:
-    - Make sure you have installed Android Studio as per installation <a name="setup">instructions above</a>.
+    - Make sure you have installed Android Studio as per [Getting Started](#getting-started).
     - If this is the first time you have opened the project in Android Studio it will prompt you for import. Just select the defauls and continue.
     - Once Android Studio has started the project should automatically build, once built you can execute it via the Run menu.
 
@@ -127,7 +125,7 @@ If you find PATT useful, please consider donating:
 `npm run start:ios`
 
 - Notes:
-    - Make sure you have installed XCode as per installation <a name="setup">instructions above</a>.
+    - Make sure you have installed XCode as per [Getting Started](#getting-started).
     - If this is the first time you have opened the project in XCode it will prompt you for import. Just select the defauls and continue.
     - Once XCode has started the project should automatically build, once built you can execute it via the Run button.
 
@@ -148,7 +146,7 @@ If you find PATT useful, please consider donating:
 - This template provides configuration for a firebase test server.
 
 1. First, create a new [Firebase](https://firebase.google.com) project.
-2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method) 
+2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method). If you want use Firestore or Storage, make sure you have configured your access rights for them.
 3. Add the project id (found in your Firebase Project Settings) for your test Firebase project under the `test` field in `.firebaserc`:
 
  
@@ -188,7 +186,7 @@ If you find PATT useful, please consider donating:
 - This template provides configuration for a firebase production server.
 
 1. First, create a new [Firebase](https://firebase.google.com) project.
-2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method) 
+2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method). If you want use Firestore or Storage, make sure you have configured your access rights for them.
 3. Add the project id (found in your Firebase Project Settings) for your prod Firebase project under the `prod` field in `.firebaserc`:
 
  
@@ -271,12 +269,15 @@ If you find PATT useful, please consider donating:
 
 - Messages.ts
 
+    - Messages are loaded asynchonously from the server, see Configuration.configure();
+    - Example Usage:
 
-## Configuration
+    
 
-## Adding firebase functions support
 
-- Firebase functions should be developed in a different project/repository, here's a decent TypeScript template to get you started
+# Adding firebase functions support
+
+- Firebase functions should be engineered in a different project/repository. If this project is of interest we will consider releasing our firebase functions template, until then, here's a decent firebase TypeScript template to get you started:
 
 https://github.com/firebase/functions-samples/tree/master/typescript-getting-started
 
