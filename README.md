@@ -169,12 +169,12 @@ If you find PATT useful, please consider donating:
 ```
 ...
         "firebase" : {
-            "apiKey": "",
-            "authDomain": "",
-            "databaseURL": "",
-            "projectId": "",
-            "storageBucket": "",
-            "messagingSenderId": ""
+            "apiKey": "your_api_key",
+            "authDomain": "your.firebaseapp.com",
+            "databaseURL": "https://your.firebaseio.com",
+            "projectId": "your-project-id",
+            "storageBucket": "your.appspot.com",
+            "messagingSenderId": "123456789012"
         }
 ...
 ```
@@ -209,12 +209,12 @@ If you find PATT useful, please consider donating:
 ```
 ...
         "firebase" : {
-            "apiKey": "",
-            "authDomain": "",
-            "databaseURL": "",
-            "projectId": "",
-            "storageBucket": "",
-            "messagingSenderId": ""
+            "apiKey": "your_api_key",
+            "authDomain": "your.firebaseapp.com",
+            "databaseURL": "https://your.firebaseio.com",
+            "projectId": "your-project-id",
+            "storageBucket": "your.appspot.com",
+            "messagingSenderId": "123456789012"
         }
 ...
 ```

@@ -1,10 +1,10 @@
 {
     "config" : {
         "firebase" : {
-            "apiKey": "<your api key>",
+            "apiKey": "your_api_key",
             "authDomain": "your.firebaseapp.com",
             "databaseURL": "https://your.firebaseio.com",
-            "projectId": "your-id",
+            "projectId": "your-project-id",
             "storageBucket": "your.appspot.com",
             "messagingSenderId": "123456789012"
         },
