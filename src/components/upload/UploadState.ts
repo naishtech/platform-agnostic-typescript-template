@@ -1,5 +1,8 @@
 import {observable, computed} from "mobx";
 
+/**
+ * Sample upload state
+ */
 export class UploadStore {
 
     @observable public urls: string[] = [];

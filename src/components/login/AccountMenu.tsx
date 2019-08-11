@@ -28,10 +28,12 @@ export default class AccountMenu extends React.Component<{}, {}> {
     }
 
     /**
-     * Signs the user out when the logout link is clicked
+     * Clear firebase references and signs the user out when the logout link is clicked
      */
 
     private onClickLogout() {
+
+        LoginState.subscriptions.filter(unsub => !!unsub).forEach(unsub => unsub());
 
         firebase.auth().signOut().then(() => {
             LoginState.user = null;

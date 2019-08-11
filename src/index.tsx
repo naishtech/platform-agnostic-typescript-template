@@ -8,7 +8,6 @@ declare const require: (path: string) => { default: any; };
 
 /**
  * Sample index compnent with live hot swap
- * Attempts to 
  */
 
 const rootEl = document.getElementById("root");
