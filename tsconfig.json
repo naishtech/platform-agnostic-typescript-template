@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react",
+        "lib": ["es5", "es6", "dom"],
+        "experimentalDecorators": true
+    },
+    "include": [
+        "./src/**/*", "webpack", "jest"
+    ]
+}

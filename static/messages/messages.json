@@ -1,0 +1,19 @@
+{
+    "messages": {
+        "en-US" : {
+            "home-title":"Platform Agnostic TypeScript Template (PATT)",
+            "welcome" : "Welcome",
+            "shakeout-test-auth":"Firebase Authentication:",
+            "shakeout-test-database":"Firebase Realtime Database:",
+            "shakeout-test-key":"Test Key:",
+            "shakeout-test-val":"Test Value:",
+            "shakeout-test-add":"Add",
+            "shakeout-test-delete":"Delete all",
+            "shakeout-test-upload":"Firebase Storage Upload:",
+            "shakeout-test-logout" : "Test Log out",
+            "shakeout-test-login" : "Test Log in"
+        }
+    }
+}
+
+

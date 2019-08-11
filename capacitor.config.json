@@ -1,0 +1,7 @@
+{
+  "appId": "com.example.app",
+  "appName": "Platform Agnostic TypeScript Template",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist"
+}

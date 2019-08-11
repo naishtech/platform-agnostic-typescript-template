@@ -1,0 +1,18 @@
+{
+    "config" : {
+        "firebase" : {
+            "apiKey": "<your api key>",
+            "authDomain": "your.firebaseapp.com",
+            "databaseURL": "https://your.firebaseio.com",
+            "projectId": "your-id",
+            "storageBucket": "your.appspot.com",
+            "messagingSenderId": "123456789012"
+        },
+        "analytics":{
+            "google":{
+                "config":""
+            }
+        },
+        "messages" : "messages.json"
+    }
+}

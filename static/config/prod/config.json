@@ -1,0 +1,19 @@
+{
+    "config" : {
+        "firebase" : {
+            "apiKey": "",
+            "authDomain": "",
+            "databaseURL": "",
+            "projectId": "",
+            "storageBucket": "",
+            "messagingSenderId": ""
+        },
+        "analytics":{
+            "google":{
+                "config":""
+            }
+        },
+        "messages" : "messages.json"
+    }
+}
+

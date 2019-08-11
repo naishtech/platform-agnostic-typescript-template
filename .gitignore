@@ -1,0 +1,15 @@
+/dist
+/node_modules
+/build
+/plugins
+*.log
+/www
+/cypress/videos
+/cypress/screenshots
+.vscode
+.DS_Store
+.firebase
+.firebaserc
+.stylelintrc
+/src/__tests__/__coverage__
+/temp
