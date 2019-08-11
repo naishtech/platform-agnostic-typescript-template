@@ -4,7 +4,7 @@ class I18nService {
 
     /**
      * Sets a new message configuration
-     * @param messagesConfig new message config eg
+     * @param messagesConfig new message config eg: https://github.com/naishtech/platform-agnostic-typescript-template/blob/master/static/messages/messages.json
      */
     public setMessages(messagesConfig: any): void {
 
@@ -13,21 +13,14 @@ class I18nService {
     }
 
     /**
-     * 
-     * @param key Get;s
-     * @param country 
-     * @param locale 
+     * @param key message key
+     * @param country country as configured in messages.config (eg: en)
+     * @param locale country as configured in messages.config (eg: US)
      */
     public get(key: string, country?: string, locale?: string): string {
 
         let message = this.getMessage(key, country, locale);
         return message ? message : key;
-
-    }
-
-    public getRequired(key: string, country?: string, locale?: string): string {
-
-        return this.getMessage(key, country, locale);
 
     }
 
@@ -39,7 +32,7 @@ class I18nService {
 
     }
 
-    public static configure(messagesConfig: any): void {
+    private static configure(messagesConfig: any): void {
 
         I18nService.messages = messagesConfig;
 

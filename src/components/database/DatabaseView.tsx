@@ -4,6 +4,7 @@ import { Messages } from "../../services/Messages";
 import { DatabaseState } from "./DatabaseState";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
+import { LoginState } from "../login/LoginState";
 
 /**
  * Sample Database view
@@ -28,16 +29,23 @@ export default class DatabaseView extends React.Component<{}, {}> {
         firebase.firestore()
             .collection(colectionName)
             .doc(docName).delete();
+
     }
 
     private async getValues() {
-        firebase.firestore()
+
+        const unsubscribe = firebase.firestore()
             .collection(colectionName)
             .doc(docName)
             .onSnapshot(snapShot => DatabaseState.rows = snapShot.data());
+            
+        //save the unscub function and execute it before logging out
+        LoginState.subscriptions.push(unsubscribe);
+
     }
 
     private onAddButtonClicked() {
+
         if (this.key && this.val) {
             const update = {};
             update[this.key] = this.val;
@@ -49,17 +57,20 @@ export default class DatabaseView extends React.Component<{}, {}> {
     }
 
     private onKeyChange(evt: any) {
+
         this.key = evt.target.value;
+
     }
 
     private onValChange(evt: any) {
+
         this.val = evt.target.value;
+
     }
 
     render() {
 
         const rows = [];
-
         for (let key in DatabaseState.rows) {
             rows.push(<li>{key} | {DatabaseState.rows[key]}</li>);
         }
@@ -76,5 +87,6 @@ export default class DatabaseView extends React.Component<{}, {}> {
                 </ul>
             </div>
         );
+        
     }
 }

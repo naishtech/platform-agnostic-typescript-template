@@ -1,19 +1,36 @@
 import { Messages } from "./Messages";
 
+/**
+ * Configuration service
+ */
 class ConfigurationService {
 
     private static configuration = {};
 
+    /**
+     * Retrieves configuration object for a configured field
+     * @param field field to retrieve
+     */
     public getConfig(field: string): any {
 
         return ConfigurationService.configuration[field];
 
     }
 
+    /**
+     * Sets the configuration object
+     * @param config configuration object eg: https://github.com/naishtech/platform-agnostic-typescript-template/blob/master/static/config/dev/config.json
+     */
     public setConfig(config: any): void {
+
         ConfigurationService.configuration = config;
+
     }
 
+    /**
+     * Reads local configuration and fetches messages from server.
+     * @param url 
+     */
     public configure(url: string): Promise<void> {
 
         return ConfigurationService.fetchSameOrigin(url)

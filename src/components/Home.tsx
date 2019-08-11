@@ -16,7 +16,7 @@ export default class Home extends React.Component<{}, {}> {
         return (
             <div>
                 <h1>{Messages.get("home-title")}</h1>
-                <ServiceStatus />
+                <ServiceStatus/>
             </div>
         );
     }

@@ -1,5 +1,8 @@
 import { observable } from "mobx";
 
+/**
+ * Route state
+ */
 class RoutingService {
 
     @observable redirect: string;

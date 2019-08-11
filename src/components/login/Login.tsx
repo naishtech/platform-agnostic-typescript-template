@@ -12,11 +12,13 @@ const uiConfig = {
     signInSuccessUrl: "/",
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ]
 };
 
+/**
+ * Sample Firebase login component
+ */
 @observer
 export default class Login extends React.Component {
 
