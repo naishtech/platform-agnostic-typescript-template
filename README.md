@@ -39,9 +39,8 @@ If you find PATT useful, please consider donating:
 
 # 2. Requirements:
 
-- NodeJS.
-- npm.
-- Android Studio (Android).
+- [NodeJS/npm](https://nodejs.org/en/)
+- [Android Studio](https://developer.android.com/studio) (Optional)
 - XCode (iOS).
 
 <a name="modules"></a>
@@ -81,17 +80,19 @@ If you find PATT useful, please consider donating:
 
 6. Execute `npm install`.
 
+<a name="development-guide"></a>
+
 # Development Guide:
 
 ## Getting Started:
 
-### Building the web app:
+### Building the sample web app:
 
 `npm run build:dev`
 
 - Notes:
-    - [Capacitor](https://capacitor.ionicframework.com/) works by copying your web application bundle (HTML / JavaScript / CSS) to other target platforms (IOS/Android/Desktop). This script will build your web application using the configuration in `/webpack/dev.js`.
-    - If you navigate to the `/webpack` directory you will also see WebPack configurations for test (`test.json`) and production (`prod.json`) - those configurations are used to deploy to your test and production servers.
+    - Compiled files will be in the `dist` directory.
+    - [Capacitor](https://capacitor.ionicframework.com/) works by copying your web application bundle (HTML / JavaScript / CSS) to other target platforms (IOS/Android/Desktop). The above script will build your web application using the configuration in `/webpack/dev.js`, likewise `npm run build:test` and `npm run build:prod` will build using the configuration in `/webpack/test.js` and `/webpack/prod.js` respectively.
 
 ### Running tests:
 
@@ -104,18 +105,20 @@ If you find PATT useful, please consider donating:
 
 ### Starting the local web development server:
 
+- In order to log in to the sample app provided you will need to create a test Firebase server
+
 `npm run start`
 
 - Notes:
-    - Once you have built your application, you can start a local web host at http://localhost:8080 using the above command:
-    - Note the local webpack development server comes with an inbuilt hot loader and will reload as you make changes to your source code.
+    - Once you have built your application, this command will start a local web host at http://localhost:8080
+    - The local webpack development server comes with an inbuilt hot loader and will reload as you make changes to your source code.
 
 ### Starting the local Android emulator:
 
 `npm run start:android`
 
 - Notes:
-    - Make sure you have installed Android Studio as per installation instructions above.
+    - Make sure you have installed Android Studio as per installation <a name="setup">instructions above</a>.
     - If this is the first time you have opened the project in Android Studio it will prompt you for import. Just select the defauls and continue.
     - Once Android Studio has started the project should automatically build, once built you can execute it via the Run menu.
 
@@ -124,7 +127,7 @@ If you find PATT useful, please consider donating:
 `npm run start:ios`
 
 - Notes:
-    - Make sure you have installed XCode as per installation instructions above.
+    - Make sure you have installed XCode as per installation <a name="setup">instructions above</a>.
     - If this is the first time you have opened the project in XCode it will prompt you for import. Just select the defauls and continue.
     - Once XCode has started the project should automatically build, once built you can execute it via the Run button.
 
@@ -136,14 +139,17 @@ If you find PATT useful, please consider donating:
     - Electron support for Capacitor is currently in preview, and lags behind iOS, Android, and Web support.
     - First time starting this might take a while, be patient
 
+<a name="hosting"></a>
+
 # Hosting
 
 ## Deploying to a Firebase test server
 
 - This template provides configuration for a firebase test server.
 
-1. First, create a new Firebase project.
-2. Add the project id for your test Firebase project under the `test` field in `.firebaserc`:
+1. First, create a new [Firebase](https://firebase.google.com) project.
+2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method) 
+3. Add the project id (found in your Firebase Project Settings) for your test Firebase project under the `test` field in `.firebaserc`:
 
  
 ```
@@ -156,7 +162,7 @@ If you find PATT useful, please consider donating:
 }
 ```
 
-3. Add the relevant configuration to the following file.
+4. Get your project settings (under the [firebase console](https://console.firebase.google.com) go to Settings -> Project Settings) and add the relevant configuration to the following file.
 
 `/static/config/test.json`
 
@@ -173,31 +179,30 @@ If you find PATT useful, please consider donating:
 ...
 ```
 
-- Firebase project settings can be found in your Firebase project under `Project Settings`
-- Once you have configured as per above, run the following:
+5. Once you have configured as per above, run the following:
 
 `npm run deploy:test`
 
-## Deploying to a Firebase production server
+## Deploying to a Firebase prod server
 
 - This template provides configuration for a firebase production server.
 
-1. First, create a new Firebase project.
-2. Add the project id for your production Firebase project under the `prod` field in `.firebaserc`:
+1. First, create a new [Firebase](https://firebase.google.com) project.
+2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method) 
+3. Add the project id (found in your Firebase Project Settings) for your prod Firebase project under the `prod` field in `.firebaserc`:
 
  
 ```
  {
   "projects": {
 ...
-    "prod": "test-firebase-project",
+    "prod": "prod-firebase-project",
 ...
   }
 }
 ```
 
-
-3. Add the relevant configuration to the following file.
+4. Get your project settings (under the [firebase console](https://console.firebase.google.com) go to Settings -> Project Settings) and add the relevant configuration to the following file.
 
 `/static/config/prod.json`
 
@@ -214,24 +219,27 @@ If you find PATT useful, please consider donating:
 ...
 ```
 
-- Firebase project settings can be found in your Firebase project under `Project Settings`
-- Once you have configured as per above, run the following:
+5. Once you have configured as per above, run the following:
 
 `npm run deploy:prod`
 
-# Developer Guide
+<a name="sample-project"></a>
+
+# Sample Project
 
 ## Sample Components
 
-- `src/components/AccountMenu.tsx`: Simple account menu with a login link. Clicking the link will send the user to Login.tsx
-- `src/components/Login.tsx`: Contains the FirebaseUI plain email/password login/sign up button
-- `src/App.tsx`: Main container with configured routes (with dev hot loader support)
-- `src/Home.tsx`: Simple home screen showing PATT service configuration and shakeout tests
-- `index.tsx`: Index page with dev hot loader support
+- `src/components/database/DatabaseView.tsx`: Simple data table connected to a Firebase Firestore database.
+- `src/components/database/DatabaseState.ts`: Database state.
+- `src/components/login/AccountMenu.tsx`: Simple account menu with a login link. Clicking the link will send the user to Login.tsx.
+- `src/components/login/Login.tsx`: Contains the FirebaseUI plain email/password login/sign up button.
+- `src/components/login/LoginState.ts`: Login state (contains unsubscribe functions).
+- `src/components/upload/Upload.tsx`: Simple upload connected to Firebase storage.
+- `src/components/upload/Upload.ts`: Upload state.
+- `src/App.tsx`: Main container with configured routes (with dev hot loader support).
+- `src/Home.tsx`: Simple home screen showing PATT service configuration and shakeout tests.
+- `index.tsx`: Index page with dev hot loader support.
 
-## Sample States
-
-- `src/components/LoginState.ts`: Login state with mobx (decorator) support
 
 ## Services
 
@@ -242,22 +250,6 @@ If you find PATT useful, please consider donating:
     2. Messages.ts
 
 ### Built in services:
-
--  Authentication.ts
-    - Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method) 
-    - When configured, will listen for user login (either via firebase auto sign in or manual login with the Login.tsx component)
-    - Example usage:
-
-    ```
-    import {Authentication} from 'Authentication';
-
-    /* 
-        Listen for sign in
-    */
-
-    Authentication.listenForLogin();
-
-    ```
 
 - Configuration.ts
     - Configuration service supporting dev, test and prod configurations under `src/static/config/`;
@@ -278,7 +270,6 @@ If you find PATT useful, please consider donating:
 
 
 - Messages.ts
-
 
 
 ## Configuration
