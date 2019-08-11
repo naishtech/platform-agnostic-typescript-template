@@ -23,14 +23,15 @@ export default class App extends React.Component<{}, {}> {
     }
 
     private initFirebase(){
-        if (firebase.apps.length === 0) {
-            return firebase.initializeApp(Configuration.getConfig("firebase"));
+        const config = Configuration.getConfig("firebase");
+        if (config && firebase.apps.length === 0) {
+            return firebase.initializeApp(config);
         }
     }
 
     private initAnlytics(){
-        if(Configuration.configured("analytics")) {
-            const config = Configuration.getConfig("analytics");
+        const config = Configuration.getConfig("analytics")
+        if(config) {
             ReactGA.initialize(config.google.config);
             window.onhashchange = () => {
                 let hashPath = window.location.href.split("#");

@@ -82,35 +82,6 @@ class ConfigurationService {
         ConfigurationService.configuration = config;
     }
     
-    /**
-     * Checks to see if a service has been configured
-     * @param serviceId as per Services.ServiceNames
-     */
-    public configured(serviceId: string): boolean {
-
-        let config = Configuration.getConfig(serviceId);
-        return this.checkFields(config, true);
-
-    }
-
-    /**
-     * Checks an object to see if values have been assigned
-     * @param configObject configuration obect from Configuration.getConfig
-     * @param result true if a service has values configured
-     */
-    private checkFields(configObject: object, result: boolean): boolean {
-
-        for (let field in configObject) {
-            if (typeof configObject[field] === "string") {
-                return configObject[field].length > 0;
-            } else if (typeof configObject[field] === "number") {
-                return configObject[field] > 0;
-            } else if (typeof configObject[field] === "object") {
-                return this.checkFields(configObject[field], result);
-            }
-        }
-
-    }
 }
 
 export const Configuration = new ConfigurationService();
