@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/naishtech/platform-agnostic-typescript-template.svg?branch=master)](https://travis-ci.org/naishtech/platform-agnostic-typescript-template)
 
-PATT is a template for multi-platform TypeScript applications with hosting support.
+PATT is a template for multi-platform TypeScript applications with serverside authentication, database and storage support.
 
 PATT can span mulitple devices natively including Web, Desktop, Android and iOS.
 
@@ -20,6 +20,10 @@ If you find PATT useful, please consider donating:
 2. [ Requirements ](#requirements)
 3. [ Modules ](#dependencies)
 4. [ Setup ](#setup)
+5. [ Getting Started ](#getting-started)
+6. [ Hosting ](#hosting)
+7. [ Sample Project ](#sample-project)
+8. [ Firebase Functions ](#firebase-functions)
 
 <a name="features"></a>
 
@@ -40,8 +44,8 @@ If you find PATT useful, please consider donating:
 # 2. Requirements:
 
 - [NodeJS/npm](https://nodejs.org/en/)
-- [Android Studio](https://developer.android.com/studio) (Optional)
-- XCode (iOS).
+- [Android Studio](https://developer.android.com/studio) (Optional for building Android Apps)
+- [XCode](https://developer.apple.com/xcode) (Optional for building iOS Apps).
 
 <a name="modules"></a>
 
@@ -82,7 +86,7 @@ If you find PATT useful, please consider donating:
 
 <a name="getting-started"></a>
 
-# Getting Started:
+# 5. Getting Started:
 
 ### Building the sample web app:
 
@@ -139,7 +143,7 @@ If you find PATT useful, please consider donating:
 
 <a name="hosting"></a>
 
-# Hosting
+# 6. Hosting
 
 ## Deploying to a Firebase test server
 
@@ -223,7 +227,7 @@ If you find PATT useful, please consider donating:
 
 <a name="sample-project"></a>
 
-# Sample Project
+# 7. Sample Project
 
 ## Sample Components
 
@@ -272,10 +276,10 @@ If you find PATT useful, please consider donating:
     - Messages are loaded asynchonously from the server, see Configuration.configure();
     - Example Usage:
 
-    
 
+<a name="firebase-functions"></a>
 
-# Adding firebase functions support
+# 8. Adding firebase functions support
 
 - Firebase functions should be engineered in a different project/repository. If this project is of interest we will consider releasing our firebase functions template, until then, here's a decent firebase TypeScript template to get you started:
 
