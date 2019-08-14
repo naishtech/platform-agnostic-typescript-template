@@ -94,14 +94,14 @@ If you find PATT useful, please consider donating:
 
 - Notes:
     - Compiled files will be in the `dist` directory.
-    - [Capacitor](https://capacitor.ionicframework.com/) works by copying your web application bundle (HTML / JavaScript / CSS) to other target platforms (IOS/Android/Desktop). The above script will build your web application using the configuration in `/webpack/dev.js`, likewise `npm run build:test` and `npm run build:prod` will build using the configuration in `/webpack/test.js` and `/webpack/prod.js` respectively.
+    - [Capacitor](https://capacitor.ionicframework.com/) works by copying your web application bundle (HTML / JavaScript / CSS) to other target platforms (IOS/Android/Desktop). The above script will build your web application using the [Webpack](https://webpack.js.org/) build configuration in `/webpack/dev.js`, likewise `npm run build:test` and `npm run build:prod` will build using the [Webpack](https://webpack.js.org/) build configuration in `/webpack/test.js` and `/webpack/prod.js` respectively.
 
 ### Running tests:
 
 `npm run test`
 
 - Notes:
-    - This template includes Jest as a unit testing tool. A sample test rendering the `<App/>` component can be found in `/src/__tests__/App.test.tsx`. To execute the tests run:
+    - This template includes Jest as a unit testing tool. A sample test rendering the `<App/>` component can be found in `/src/__tests__/App.test.tsx`.
     - All tests should be placed under `/src/__tests__/`
     - A coverage report will be added to `/src/__coverage__/`
 

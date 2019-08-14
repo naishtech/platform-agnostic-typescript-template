@@ -1,19 +1,25 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 import App from "../components/App";
-import { Configuration } from "../services/Configuration";
 import { Messages } from "../services/Messages";
-import {testConfig, testMessages} from "./TestConfig";
+import { testMessages, testConfig } from "./Services.test"; 
+import { Configuration } from "../services/Configuration";
 
-describe("A suite", () => {
+/**
+ * Sample .tsx test
+ */
+describe("Component Suite", () => {
 
     beforeAll(() => {
-        Configuration.setConfig(testConfig);
+
+        Configuration.setConfig(testConfig)
         Messages.setMessages(testMessages);
+
     });
 
     it("should render App without throwing an error", () => {
         shallow(<App/>);
     });
+
 
 });
