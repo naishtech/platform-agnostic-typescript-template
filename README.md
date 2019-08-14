@@ -110,9 +110,9 @@ If you find PATT useful, please consider donating:
 `npm run start`
 
 - Notes:
+    - Once you have built your application, this command will start a local web host at http://localhost:8080
     - In order to log in to the sample app provided you will need to create a test Firebase server, see [Hosting](#hosting). After you have set up your test server you can copy the `firebase` settings to your local `static/config/dev/config.json` file.
     - In order use the sample shakeout tests you will need to setup the appropriate rules in Firestore and Storage to allow read write access for logged in users.
-    - Once you have built your application, this command will start a local web host at http://localhost:8080
     - The local webpack development server comes with an inbuilt hot loader and will reload as you make changes to your source code.
 
 ### Starting the local Android emulator:
