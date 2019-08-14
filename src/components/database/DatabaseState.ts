@@ -9,7 +9,6 @@ export class DatabaseStore {
     public key: string;
     public val: string;
 
-
 }
 
 export const DatabaseState = new DatabaseStore();

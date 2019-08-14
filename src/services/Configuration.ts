@@ -35,8 +35,7 @@ class ConfigurationService {
 
         return ConfigurationService.fetchSameOrigin(url)
             .then(ConfigurationService.onConfigResponse)
-            .then(() => ConfigurationService.fetchReferencedConfigurations())
-            .then(() => console.debug("Services configured."));
+            .then(() => ConfigurationService.fetchReferencedConfigurations());
 
     }
 
@@ -49,15 +48,14 @@ class ConfigurationService {
     private static fetchReferencedConfigurations(): Promise<void> {
 
         return ConfigurationService.fetchSameOrigin(ConfigurationService.getConfiguration()["messages"])
-            .then(Messages.onMessagesResponse)
-            .then(() => console.debug("Loaded messages."));
+            .then(Messages.onMessagesResponse);
 
     }
 
     private static fetchSameOrigin(url: string) {
 
         return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 resolve(new Response(xhr.responseText, { status: xhr.status }));
             };
@@ -78,8 +76,8 @@ class ConfigurationService {
 
     private static onConfigParsed(result: any): void {
 
-        let config = result["config"];
-        ConfigurationService.configuration = config;
+        ConfigurationService.configuration = result["config"];
+        
     }
     
 }

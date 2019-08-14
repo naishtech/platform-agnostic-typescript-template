@@ -21,6 +21,9 @@ export default class AccountMenu extends React.Component<{}, {}> {
 
     }
 
+    /**
+     * Listesn for login via the FirebaseUI (see Login.tsx)
+     */
     private listenForLogin() {
 
         firebase.app().auth().onAuthStateChanged(user => LoginState.user = user);
