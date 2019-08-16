@@ -10,7 +10,7 @@
         },
         "analytics":{
             "google":{
-                "config":""
+                "config":"your_ga_key"
             }
         },
         "messages" : "messages.json"

@@ -281,7 +281,7 @@ If you find PATT useful, please consider donating:
 
 # 8. Adding firebase functions support
 
-- Firebase functions should be engineered in a different project/repository. If this project is of interest we will consider releasing our firebase functions template, until then, here's a decent firebase TypeScript template to get you started:
+- Firebase functions should be engineered in a different project/repository. If PATT is of interest we will consider releasing our firebase functions template, until then, here's a decent firebase TypeScript template to get you started:
 
 https://github.com/firebase/functions-samples/tree/master/typescript-getting-started
 
