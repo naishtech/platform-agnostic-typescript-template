@@ -276,6 +276,31 @@ If you find PATT useful, please consider donating:
     - Messages are loaded asynchonously from the server, see Configuration.configure();
     - Example Usage:
 
+     ```
+    import {Configuration} from 'Configuration';
+
+    /* 
+        Get the message string from messages.json.
+    */
+  
+    const message = Messages.get("hello")
+
+    /* 
+        Get the message string from messages.json in en US locale
+    */
+
+    const message = Messages.get("hello","en_US");
+
+     /* 
+        Format a string with a variable
+    */
+
+    const message = Messages.format("Hello {0}", ["Patt"]);
+
+    //returns "Hello Patt"
+  
+    ```
+
 
 <a name="firebase-functions"></a>
 
