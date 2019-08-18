@@ -60,9 +60,9 @@ If you find PATT useful, please consider donating:
 - [Jest](https://jestjs.io/)
 - [Mobx](https://github.com/mobxjs/mobx)
 - [TypeScript](https://www.typescriptlang.org/) 
-- [tslint](https://palantir.github.io/tslint/)
+- [ESLint](https://eslint.org/)
 - [Scss](https://sass-lang.com/)
-- [stylelint](https://stylelint.io/)
+- [Stylelint](https://stylelint.io/)
 
 <a name="setup"></a>
 
