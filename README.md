@@ -302,9 +302,9 @@ If you find PATT useful, please consider donating:
         Format a string with a variable
     */
 
-    const message = Messages.format("Hello {0}", ["Patt"]);
+    const message = Messages.format("Hello {0} you're {1}", ["PATT","ace"]);
 
-    //returns "Hello Patt"
+    //returns "Hello PATT you're ace"
  
     ```
 
