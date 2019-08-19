@@ -54,7 +54,7 @@ module.exports = {
             "charset": "UTF-8",
             "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
             "name":"Platform Agnostic TypeScript Template",
-            "description":"Top Java News from around the globe",
+            "description":"Template for making full stack mulit-platform applications in TypeScript",
             "keywords":"Platform Agnostic TypeScript Template",
             "title":"Platform Agnostic TypeScript Template"
           },
