@@ -24,9 +24,9 @@ export default class DatabaseView extends React.Component<{}, {}> {
         this.getValues();
     }
 
-     /**
-     * Gets the "shakeout-tests" collection and "rows" object from firestore
-     */
+    /**
+    * Gets the "shakeout-tests" collection and "rows" object from firestore
+    */
     private async deleteValues() {
 
         firebase.firestore()
@@ -44,28 +44,28 @@ export default class DatabaseView extends React.Component<{}, {}> {
             .collection(colectionName)
             .doc(docName)
             .onSnapshot(snapShot => DatabaseState.rows = snapShot.data());
-            
+
         //save the unsub function and execute it before logging out
         LoginState.subscriptions.push(unsubscribe);
 
     }
 
-    
+
     /**
      * Updates the "rows" object in the collection "shakeout-tests"
      */
-    private async setValue(key: string, val:string){
+    private async setValue() {
         const update = {};
-            update[this.key] = this.val;
-            firebase.firestore()
-                .collection(colectionName).doc(docName)
-                .set(update, { merge: true });
+        update[this.key] = this.val;
+        firebase.firestore()
+            .collection(colectionName).doc(docName)
+            .set(update, { merge: true });
     }
 
     private onAddButtonClicked() {
 
         if (this.key && this.val) {
-            this.setValue(this.key, this.val);
+            this.setValue();
         }
 
     }
@@ -101,6 +101,6 @@ export default class DatabaseView extends React.Component<{}, {}> {
                 </ul>
             </div>
         );
-        
+
     }
 }

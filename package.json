@@ -27,7 +27,6 @@
     "build:test": "npm run clean-dist && webpack -p --config=webpack/test.js",
     "build:dev": "npm run clean-dist && webpack -p --config=webpack/dev.js",
     "clean-dist": "node rimraf.js dist",
-    "lint:ts": "tslint './src/**/*.ts*' --exclude '**/__test__/**' --format stylish --force",
     "lint:es": "eslint ./src --ext .ts,.tsx",
     "lint:sass": "stylelint ./src/**/*.scss",
     "start": "npm run start:web",

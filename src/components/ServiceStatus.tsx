@@ -15,7 +15,7 @@ export default class ServiceStatus extends React.Component<{}, {}> {
         return (
             <div>
                 {firebase.app.length > 0 ? <AccountMenu /> : null}
-                {firebase.app.length > 0 && LoginState.user ? 
+                {firebase.app.length > 0 && LoginState.user ?
                     <ul>
                         <li>
                             {LoginState.user ? <DatabaseView /> : null}
@@ -24,7 +24,7 @@ export default class ServiceStatus extends React.Component<{}, {}> {
                             {LoginState.user ? <Upload /> : null}
                         </li>
                     </ul>
-                : null}
+                    : null}
             </div>
         );
     }
