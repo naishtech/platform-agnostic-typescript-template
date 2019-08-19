@@ -16,10 +16,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://anaish@bitbucket.org/anaish/platform-agnostic-typescript-template.git"
+    "url": "git+https://naishtech@bitbucket.org/naishtech/platform-agnostic-typescript-template.git"
   },
   "bugs": {
-    "url": "https://github.com/anaish/platform-agnostic-typescript-template/issues"
+    "url": "https://github.com/naishtech/platform-agnostic-typescript-template/issues"
   },
   "homepage": "https://www..io",
   "scripts": {
