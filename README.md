@@ -105,6 +105,15 @@ If you find PATT useful, please consider donating:
     - All tests should be placed under `/src/__tests__/`
     - A coverage report will be added to `/src/__coverage__/`
 
+### Checking code style:
+
+`npm run list:es`
+
+- Notes:
+    - Code styles can be configured in `.eslintrc.js`
+    - Tests are ignored (code styles ignores can be configured in `.eslintignore`)
+    
+
 ### Starting the local web development server:
 
 `npm run start`
