@@ -18,7 +18,7 @@ export default class App extends React.Component<{}, {}> {
 
     constructor(props: any){
         super(props);
-        this.initAnlytics();
+        this.initAnalytics();
         this.initFirebase();
     }
 
@@ -29,7 +29,7 @@ export default class App extends React.Component<{}, {}> {
         }
     }
 
-    private initAnlytics(){
+    private initAnalytics(){
         const config = Configuration.getConfig("analytics")
         if(config) {
             ReactGA.initialize(config.google.config);
