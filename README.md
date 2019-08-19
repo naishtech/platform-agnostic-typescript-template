@@ -262,7 +262,7 @@ If you find PATT useful, please consider donating:
 ### Built in services:
 
 - Configuration.ts
-    - Configuration service supporting dev, test and prod configurations under `src/static/config/`;
+    - Configuration service supporting dev, test and prod configurations under `static/config/`;
     - Messages.json are loaded via XHR Request (see Messages.ts)
     - The dev, test and prod configuration is deployed with the relative npm script targets `npm deploy:<dev|test|prod>`
     - Example usage:
