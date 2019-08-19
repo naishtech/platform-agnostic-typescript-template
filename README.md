@@ -107,7 +107,7 @@ If you find PATT useful, please consider donating:
 
 ### Checking code style:
 
-`npm run list:es`
+`npm run lint:es`
 
 - Notes:
     - Code styles can be configured in `.eslintrc.js`
