@@ -251,7 +251,6 @@ If you find PATT useful, please consider donating:
 - `src/Home.tsx`: Simple home screen showing PATT service configuration and shakeout tests.
 - `index.tsx`: Index page with dev hot loader support.
 
-
 ## Services
 
 - The included services are under the following directory: `/src/services/`. 
@@ -279,14 +278,13 @@ If you find PATT useful, please consider donating:
 
     ```
 
-
 - Messages.ts
 
     - Messages are loaded asynchonously from the server, see Configuration.configure();
     - Example Usage:
 
      ```
-    import {Configuration} from 'Configuration';
+    import {Messages} from 'Messages';
 
     /* 
         Get the message string from messages.json.
@@ -300,16 +298,15 @@ If you find PATT useful, please consider donating:
 
     const message = Messages.get("hello","en_US");
 
-     /* 
+    /* 
         Format a string with a variable
     */
 
     const message = Messages.format("Hello {0}", ["Patt"]);
 
     //returns "Hello Patt"
-  
+ 
     ```
-
 
 <a name="firebase-functions"></a>
 
