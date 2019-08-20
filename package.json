@@ -1,7 +1,7 @@
 {
   "name": "platform-agnostic-typescript-template",
   "version": "0.0.1",
-  "description": "Platform Agnotsic TypeScript Template (PATT)",
+  "description": "Platform Agnostic TypeScript Template (PATT)",
   "keywords": [
     "react",
     "webpack",
