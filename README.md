@@ -33,7 +33,7 @@ If you find PATT useful, please consider donating:
 - Plain email/password authentication.
 - Google Analytics support.
 - Local, Test and Production environment configurations.
-- Firebase hosting, database and storage support. Firebase Functions with Typscript not included (there's a [template](https://github.com/firebase/functions-samples/tree/master/typescript-getting-started) for that already)
+- Firebase hosting, database and storage support. Firebase Functions with Typescript not included (there's a [template](https://github.com/firebase/functions-samples/tree/master/typescript-getting-started) for that already)
 - Multilingual i18n support.
 
 <img src="docs/ComponentDiagram.png"
