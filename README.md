@@ -1,6 +1,6 @@
 # Platform Agnostic TypeScript Template (PATT)
 
-[![Build Status](https://travis-ci.org/naishtech/platform-agnostic-typescript-template.svg?branch=master)](https://travis-ci.org/naishtech/platform-agnostic-typescript-template)
+[![Build Status](https://travis-ci.org/naishtech/platform-agnostic-typescript-template.svg?branch=master)](https://travis-ci.org/naishtech/platform-agnostic-typescript-template) [![Greenkeeper badge](https://badges.greenkeeper.io/naishtech/platform-agnostic-typescript-template.svg)](https://greenkeeper.io/)
 
 PATT is a template for multi-platform TypeScript applications with serverside authentication, database and storage support.
 
