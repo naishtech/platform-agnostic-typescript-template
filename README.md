@@ -4,7 +4,7 @@
 
 PATT is a template for multi-platform TypeScript applications with serverside authentication, database and storage support.
 
-PATT can span multi devices natively including Web, Desktop, Android and iOS.
+PATT can span multiple devices natively including Web, Desktop, Android and iOS.
 
 PATT has built in services to help you authenticate users, gather analytics, connect to an online database and upload files to online storage.
 
