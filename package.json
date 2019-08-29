@@ -75,7 +75,7 @@
     "react-hot-loader": "^4.12.10",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^3.0.0",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
