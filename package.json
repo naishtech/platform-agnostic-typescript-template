@@ -23,9 +23,9 @@
   },
   "homepage": "https://www..io",
   "scripts": {
-    "build:prod": "npm run clean-dist && webpack -p --config=webpack/prod.js",
-    "build:test": "npm run clean-dist && webpack -p --config=webpack/test.js",
-    "build:dev": "npm run clean-dist && webpack -p --config=webpack/dev.js",
+    "build:prod": "npm run lint:sass && npm run clean-dist && webpack -p --config=webpack/prod.js",
+    "build:test": "npm run lint:sass && npm run clean-dist && webpack -p --config=webpack/test.js",
+    "build:dev": "npm run lint:sass && npm run clean-dist && webpack -p --config=webpack/dev.js",
     "clean-dist": "node rimraf.js dist",
     "lint:es": "eslint ./src --ext .ts,.tsx",
     "lint:sass": "stylelint ./src/**/*.scss",
