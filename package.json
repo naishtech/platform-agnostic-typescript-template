@@ -96,7 +96,7 @@
     "firebase": "^7.13.1",
     "html-react-parser": "^0.10.3",
     "mobx": "^5.15.4",
-    "mobx-react": "^6.1.8",
+    "mobx-react": "^6.2.0",
     "react-firebaseui": "^4.1.0",
     "react-ga": "^2.7.0",
     "react-router": "^5.1.2",
