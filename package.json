@@ -93,7 +93,7 @@
     "@capacitor/cli": "^1.5.2",
     "@capacitor/core": "^1.5.2",
     "@capacitor/ios": "^1.5.2",
-    "firebase": "^7.13.1",
+    "firebase": "^7.14.2",
     "html-react-parser": "^0.10.3",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.8",
