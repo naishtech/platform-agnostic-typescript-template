@@ -67,7 +67,7 @@
     "html-webpack-plugin": "^4.0.3",
     "image-webpack-loader": "^6.0.0",
     "jest": "^24.9.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "react": "^16.13.1",
     "react-addons-test-utils": "^15.6.2",
