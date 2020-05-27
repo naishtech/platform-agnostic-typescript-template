@@ -92,7 +92,7 @@
     "@capacitor/android": "^2.0.0",
     "@capacitor/cli": "^2.0.0",
     "@capacitor/core": "^2.0.0",
-    "@capacitor/ios": "^2.0.0",
+    "@capacitor/ios": "^2.1.1",
     "firebase": "^7.13.1",
     "html-react-parser": "^0.10.3",
     "mobx": "^5.15.4",
