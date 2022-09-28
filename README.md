@@ -1,3 +1,6 @@
+## Please note: this repository is no longer maintained, but might still be useful for educational purposes ##
+
+
 # Platform Agnostic TypeScript Template (PATT)
 
 [![Build Status](https://travis-ci.org/naishtech/platform-agnostic-typescript-template.svg?branch=master)](https://travis-ci.org/naishtech/platform-agnostic-typescript-template) [![Greenkeeper badge](https://badges.greenkeeper.io/naishtech/platform-agnostic-typescript-template.svg)](https://greenkeeper.io/)
