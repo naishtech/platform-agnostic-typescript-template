@@ -61,7 +61,7 @@
     "enzyme-to-json": "^3.4.4",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "file-loader": "^6.0.0",
     "firebase-tools": "^8.0.0",
     "html-webpack-plugin": "^4.0.3",
