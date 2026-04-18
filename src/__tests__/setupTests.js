@@ -1,11 +1,27 @@
-/**
- * Defines the React 16 Adapter for Enzyme. 
- *
- * @link http://airbnb.io/enzyme/docs/installation/#working-with-react-16
- * @copyright 2017 Airbnb, Inc.
- */
-const enzyme = require("enzyme");
-const Adapter = require("enzyme-adapter-react-16");
+const { TextDecoder, TextEncoder } = require("util");
 
-enzyme.configure({ adapter: new Adapter() });
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+if (!global.Response) {
+    global.Response = class Response {};
+}
+
+if (!global.Request) {
+    global.Request = class Request {};
+}
+
+if (!global.Headers) {
+    global.Headers = class Headers {};
+}
+
+if (!global.fetch) {
+    global.fetch = jest.fn(() => Promise.resolve({
+        ok: true,
+        json: async () => ({}),
+        text: async () => ""
+    }));
+}
+
+require("@testing-library/jest-dom");
 

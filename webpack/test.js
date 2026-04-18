@@ -1,24 +1,26 @@
 // test config
-const merge = require('webpack-merge');
-const {resolve} = require('path');
+const { resolve } = require('path');
+const { merge } = require('webpack-merge');
 const commonConfig = require('./common');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 
 module.exports = merge(commonConfig, {
   mode: 'production',
   entry: './index.tsx',
   output: {
-    filename: 'js/bundle.[hash].min.js',
+    filename: 'js/bundle.[contenthash].min.js',
     path: resolve(__dirname, '../dist'),
     publicPath: '/',
+    clean: true,
   },
   devtool: 'source-map',
   plugins: [
-    new CopyWebpackPlugin([
-      { from: '../static/config/test' },
-      { from: '../static/images' },
-      { from: '../static/messages' },
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: '../static/config/test', to: 'config' },
+        { from: '../static/images', to: 'images' },
+        { from: '../static/messages', to: 'messages' },
+      ],
+    })
   ],
 });

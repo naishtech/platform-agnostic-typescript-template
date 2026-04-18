@@ -1,23 +1,23 @@
 import * as React from "react";
 import { observer } from "mobx-react";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 import { Messages } from "../../services/Messages";
 import { DatabaseState } from "./DatabaseState";
-import * as firebase from "firebase/app";
-import "firebase/firestore";
 import { LoginState } from "../login/LoginState";
 
 /**
  * Sample Database view
 */
 
-const colectionName = "shakeout-tests";
+const collectionName = "shakeout-tests";
 const docName = "rows";
 
 @observer
-export default class DatabaseView extends React.Component<{}, {}> {
+export default class DatabaseView extends React.Component {
 
-    private key: string;
-    private val: string;
+    private key: string = "";
+    private val: string = "";
 
     constructor(props: any) {
         super(props);
@@ -25,69 +25,55 @@ export default class DatabaseView extends React.Component<{}, {}> {
     }
 
     /**
-    * Gets the "shakeout-tests" collection and "rows" object from firestore
+    * Deletes the sample Firestore values.
     */
     private async deleteValues() {
-
         firebase.firestore()
-            .collection(colectionName)
+            .collection(collectionName)
             .doc(docName).delete();
-
     }
 
     /**
-     * Gets the "shakeout-tests" collection and "rows" object from firestore
+     * Gets the sample Firestore values.
      */
     private async getValues() {
-
         const unsubscribe = firebase.firestore()
-            .collection(colectionName)
+            .collection(collectionName)
             .doc(docName)
-            .onSnapshot(snapShot => DatabaseState.rows = snapShot.data());
+            .onSnapshot((snapshot) => DatabaseState.rows = (snapshot.data() as Record<string, string>) || {});
 
-        //save the unsub function and execute it before logging out
         LoginState.subscriptions.push(unsubscribe);
-
     }
 
-
     /**
-     * Updates the "rows" object in the collection "shakeout-tests"
+     * Updates the Firestore sample values.
      */
     private async setValue() {
-        const update = {};
+        const update: Record<string, string> = {};
         update[this.key] = this.val;
         firebase.firestore()
-            .collection(colectionName).doc(docName)
+            .collection(collectionName).doc(docName)
             .set(update, { merge: true });
     }
 
     private onAddButtonClicked() {
-
         if (this.key && this.val) {
             this.setValue();
         }
-
     }
 
-    private onKeyChange(evt: any) {
-
+    private onKeyChange(evt: React.ChangeEvent<HTMLInputElement>) {
         this.key = evt.target.value;
-
     }
 
-    private onValChange(evt: any) {
-
+    private onValChange(evt: React.ChangeEvent<HTMLInputElement>) {
         this.val = evt.target.value;
-
     }
 
     render() {
-
-        const rows = [];
-        for (let key in DatabaseState.rows) {
-            rows.push(<li>{key} | {DatabaseState.rows[key]}</li>);
-        }
+        const rows = Object.keys(DatabaseState.rows || {}).map((key) => (
+            <li key={key}>{key} | {DatabaseState.rows[key]}</li>
+        ));
 
         return (
             <div>
@@ -101,6 +87,5 @@ export default class DatabaseView extends React.Component<{}, {}> {
                 </ul>
             </div>
         );
-
     }
 }

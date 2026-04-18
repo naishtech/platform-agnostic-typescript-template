@@ -52,9 +52,9 @@ class ConfigurationService {
 
     }
 
-    private static fetchSameOrigin(url: string) {
+    private static fetchSameOrigin(url: string): Promise<Response> {
 
-        return new Promise((resolve, reject) => {
+        return new Promise<Response>((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 resolve(new Response(xhr.responseText, { status: xhr.status }));

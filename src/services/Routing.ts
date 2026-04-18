@@ -1,13 +1,17 @@
-import { observable } from "mobx";
+import { makeObservable, observable } from "mobx";
 
 /**
  * Route state
  */
 class RoutingService {
 
-    @observable redirect: string;
-    public HOME: string = "/";
-    public LOGIN: string = "/login";
+    @observable public redirect: string | null = null;
+    public readonly HOME: string = "/";
+    public readonly LOGIN: string = "/login";
+
+    constructor() {
+        makeObservable(this);
+    }
 
 }
 
