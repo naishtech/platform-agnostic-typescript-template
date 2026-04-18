@@ -1,27 +1,27 @@
-
 import * as React from "react";
 import { observer } from "mobx-react";
+import firebase from "firebase/compat/app";
 import AccountMenu from "./login/AccountMenu";
 import Upload from "./upload/Upload";
 import { LoginState } from "./login/LoginState";
 import DatabaseView from "./database/DatabaseView";
-import firebase = require("firebase");
 
 @observer
-export default class ServiceStatus extends React.Component<{}, {}> {
+export default class ServiceStatus extends React.Component {
 
     render() {
+        const hasFirebase = firebase.apps.length > 0;
 
         return (
             <div>
-                {firebase.app.length > 0 ? <AccountMenu /> : null}
-                {firebase.app.length > 0 && LoginState.user ?
+                {hasFirebase ? <AccountMenu /> : null}
+                {hasFirebase && LoginState.user ?
                     <ul>
                         <li>
-                            {LoginState.user ? <DatabaseView /> : null}
+                            <DatabaseView />
                         </li>
                         <li>
-                            {LoginState.user ? <Upload /> : null}
+                            <Upload />
                         </li>
                     </ul>
                     : null}
@@ -29,5 +29,4 @@ export default class ServiceStatus extends React.Component<{}, {}> {
         );
     }
 }
-
 

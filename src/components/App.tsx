@@ -1,12 +1,11 @@
 import * as React from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { observer } from "mobx-react";
 import Login from "./login/Login";
 import Home from "./Home";
-import { Switch } from "react-router-dom";
 import { Configuration } from "../services/Configuration";
-import * as ReactGA from "react-ga";
-import * as firebase from "firebase/app";
+import ReactGA from "react-ga4";
+import firebase from "firebase/compat/app";
 
 /**
  * Sample component containing routes.
@@ -14,40 +13,42 @@ import * as firebase from "firebase/app";
  */
 
 @observer
-export default class App extends React.Component<{}, {}> {
+export default class App extends React.Component {
 
-    constructor(props: any){
+    constructor(props: any) {
         super(props);
         this.initAnalytics();
         this.initFirebase();
     }
 
-    private initFirebase(){
+    private initFirebase() {
         const config = Configuration.getConfig("firebase");
-        if (config && firebase.apps.length === 0) {
-            return firebase.initializeApp(config);
+        if (config?.apiKey && firebase.apps.length === 0) {
+            firebase.initializeApp(config);
         }
     }
 
-    private initAnalytics(){
-        const config = Configuration.getConfig("analytics")
-        if(config) {
+    private initAnalytics() {
+        const config = Configuration.getConfig("analytics");
+        if (config?.google?.config) {
             ReactGA.initialize(config.google.config);
-            window.onhashchange = () => {
-                let hashPath = window.location.href.split("#");
-                let page = hashPath.length === 2 ? hashPath[1] : "/index";
-                ReactGA.pageview(page);
+            const trackPage = () => {
+                const hashPath = window.location.href.split("#");
+                const page = hashPath.length === 2 ? hashPath[1] : "/index";
+                ReactGA.send({ hitType: "pageview", page });
             };
+            trackPage();
+            window.onhashchange = trackPage;
         }
     }
 
     render() {
         return (
             <HashRouter>
-                <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/" exact component={Home} />
-                </Switch>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="*" element={<Home />} />
+                </Routes>
             </HashRouter>
         );
     }

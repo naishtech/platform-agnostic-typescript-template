@@ -1,324 +1,133 @@
-## Please note: this repository is no longer maintained, but might still be useful for educational purposes ##
+# Platform Agnostic TypeScript Template
 
+A refreshed TypeScript starter for multi-platform apps using React, Webpack, Capacitor, Firebase, MobX, Jest, and Sass.
 
-# Platform Agnostic TypeScript Template (PATT)
+This repository has been updated to a current toolchain and verified on Windows in April 2026.
 
-[![Build Status](https://travis-ci.org/naishtech/platform-agnostic-typescript-template.svg?branch=master)](https://travis-ci.org/naishtech/platform-agnostic-typescript-template) [![Greenkeeper badge](https://badges.greenkeeper.io/naishtech/platform-agnostic-typescript-template.svg)](https://greenkeeper.io/)
+## Highlights
 
-PATT is a template for multi-platform TypeScript applications with serverside authentication, database and storage support.
+- React 18 application bootstrap
+- Webpack 5 build pipeline
+- TypeScript 5 project setup
+- Jest and Testing Library for unit tests
+- Firebase integration for auth, storage, and Firestore
+- Capacitor support for web, Android, and iOS targets
+- ESLint 9 and Stylelint for code quality
 
-PATT can span multiple devices natively including Web, Desktop, Android and iOS.
+## Verified status
 
-PATT has built in services to help you authenticate users, gather analytics, connect to an online database and upload files to online storage.
+The following workflows were validated during the refresh:
 
-PATT is free/open source. Enjoy.
+- Install dependencies successfully
+- Run tests successfully
+- Build the web app successfully
+- Run ESLint successfully
+- Run Stylelint successfully
 
-If you find PATT useful, please consider donating:
+## Requirements
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LPZXWY9YRQVXC&currency_code=AUD&source=url" target="_blank"><img title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif"/></a>
+- Node.js 20, 22, or 24 recommended
+- npm 10 or newer
+- Android Studio for Android builds
+- Xcode for iOS builds
 
-# Table of contents
+> Node 25 may work for local development, but some optional Firebase tooling currently prefers supported LTS releases.
 
-1. [ Features ](#features)
-2. [ Requirements ](#requirements)
-3. [ Modules ](#dependencies)
-4. [ Setup ](#setup)
-5. [ Getting Started ](#getting-started)
-6. [ Hosting ](#hosting)
-7. [ Sample Project ](#sample-project)
-8. [ Firebase Functions ](#firebase-functions)
+## Quick start
 
-<a name="features"></a>
+1. Install dependencies:
 
-# 1. Features:
-
-- Android, iOS, Desktop and Web support.
-- Plain email/password authentication.
-- Google Analytics support.
-- Local, Test and Production environment configurations.
-- Firebase hosting, database and storage support. Firebase Functions with Typescript not included (there's a [template](https://github.com/firebase/functions-samples/tree/master/typescript-getting-started) for that already)
-- Multilingual i18n support.
-
-<img src="docs/ComponentDiagram.png"
-     alt="Components"/>
-
-<a name="requirements"></a>
-
-# 2. Requirements:
-
-- [NodeJS/npm](https://nodejs.org/en/)
-- [Android Studio](https://developer.android.com/studio) (Optional for building Android Apps)
-- [XCode](https://developer.apple.com/xcode) (Optional for building iOS Apps).
-
-<a name="modules"></a>
-
-# 3. Modules:
-
-- PATT includes the following main dependencies:
-
-- [Capacitor](https://capacitor.ionicframework.com/)
-- [Firebase](https://firebase.google.com/)
-- [Google Analytics](https://analytics.google.com/analytics/web/)
-- [Webpack](https://webpack.js.org/)
-- [Jest](https://jestjs.io/)
-- [Mobx](https://github.com/mobxjs/mobx)
-- [TypeScript](https://www.typescriptlang.org/) 
-- [ESLint](https://eslint.org/)
-- [Scss](https://sass-lang.com/)
-- [Stylelint](https://stylelint.io/)
-
-<a name="setup"></a>
-
-# 4. Setup:
-
-## Install your IDE's:
-
-1. Install [VSCode](https://code.visualstudio.com/).
-
-2. Install [NodeJS/npm](https://nodejs.org/en/).
-
-3. Optionally, for Android support, install [Android Studio](https://developer.android.com/studio).
-    - Make sure your JAVA_HOME and ANDROID_SDK_ROOT environment variables are set correctly.
-    - Make sure you setup a Virtual Device (you can do this as part of the android launch, see below).
-
-4. Optionally, for iOS support, install [XCode](https://developer.apple.com/xcode/).
-
-5. Open a command prompt and change directory to your project's root directory.
-
-6. Execute `npm install`.
-
-<a name="getting-started"></a>
-
-# 5. Getting Started:
-
-### Building the sample web app:
-
-`npm run build:dev`
-
-- Notes:
-    - Compiled files will be in the `dist` directory.
-    - [Capacitor](https://capacitor.ionicframework.com/) works by copying your web application bundle (HTML / JavaScript / CSS) to other target platforms (IOS/Android/Desktop). The above script will build your web application using the [Webpack](https://webpack.js.org/) build configuration in `/webpack/dev.js`, likewise `npm run build:test` and `npm run build:prod` will build using the [Webpack](https://webpack.js.org/) build configuration in `/webpack/test.js` and `/webpack/prod.js` respectively.
-
-### Running tests:
-
-`npm run test`
-
-- Notes:
-    - This template includes Jest as a unit testing tool. A sample test rendering the `<App/>` component can be found in `/src/__tests__/App.test.tsx`.
-    - All tests should be placed under `/src/__tests__/`
-    - A coverage report will be added to `/src/__coverage__/`
-
-### Checking code style:
-
-`npm run lint:es`
-
-- Notes:
-    - Code styles can be configured in `.eslintrc.js`
-    - Tests are ignored (code styles ignores can be configured in `.eslintignore`)
-    
-
-### Starting the local web development server:
-
-`npm run start`
-
-- Notes:
-    - Once you have built your application, this command will start a local web host at http://localhost:8080
-    - In order to log in to the sample app provided you will need to create a test Firebase server, see [Hosting](#hosting). After you have set up your test server you can copy the `firebase` settings to your local `static/config/dev/config.json` file.
-    - In order use the sample shakeout tests you will need to setup the appropriate rules in Firestore and Storage to allow read write access for logged in users.
-    - The local webpack development server comes with an inbuilt hot loader and will reload as you make changes to your source code.
-
-### Starting the local Android emulator:
-
-`npm run start:android`
-
-- Notes:
-    - Make sure you have installed Android Studio as per [Getting Started](#getting-started).
-    - If this is the first time you have opened the project in Android Studio it will prompt you for import. Just select the defauls and continue.
-    - Once Android Studio has started the project should automatically build, once built you can execute it via the Run menu.
-
-### Starting the local iOS emulator:
-
-`npm run start:ios`
-
-- Notes:
-    - Make sure you have installed XCode as per [Getting Started](#getting-started).
-    - If this is the first time you have opened the project in XCode it will prompt you for import. Just select the defauls and continue.
-    - Once XCode has started the project should automatically build, once built you can execute it via the Run button.
-
-### Starting the desktop application:
-
-`npm run start:desktop`
-
-- Notes:
-    - Electron support for Capacitor is currently in preview, and lags behind iOS, Android, and Web support.
-    - First time starting this might take a while, be patient
-
-<a name="hosting"></a>
-
-# 6. Hosting
-
-## Deploying to a Firebase test server
-
-- This template provides configuration for a firebase test server.
-
-1. First, create a new [Firebase](https://firebase.google.com) project.
-2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method). If you want use Firestore or Storage, make sure you have configured your access rights for them.
-3. Add the project id (found in your Firebase Project Settings) for your test Firebase project under the `test` field in `.firebaserc`:
-
- 
+```bash
+npm install
 ```
- {
-  "projects": {
-...
-    "test": "test-firebase-project",
-...
+
+2. Start the local web app:
+
+```bash
+npm start
+```
+
+3. Open the dev server:
+
+```text
+http://localhost:8080
+```
+
+## Available scripts
+
+```bash
+npm start
+npm run build:dev
+npm run build:test
+npm run build:prod
+npm test
+npm run lint
+npm run lint:es
+npm run lint:sass
+npm run start:android
+npm run start:ios
+npm run deploy:test
+npm run deploy:prod
+```
+
+## Project structure
+
+- src/: application source
+- src/components/: UI components and feature views
+- src/services/: configuration, routing, and message services
+- src/__tests__/: unit tests
+- static/config/: environment-specific config files
+- static/messages/: localization messages
+- webpack/: build configurations
+
+## Configuration
+
+Environment config files live in the following folders:
+
+- static/config/dev/
+- static/config/test/
+- static/config/prod/
+
+Update the appropriate config.json file with your Firebase project settings before trying authentication, Firestore, or Storage features.
+
+Example structure:
+
+```json
+{
+  "config": {
+    "firebase": {
+      "apiKey": "your_api_key",
+      "authDomain": "your-project.firebaseapp.com",
+      "projectId": "your-project-id",
+      "storageBucket": "your-project.appspot.com"
+    }
   }
 }
 ```
 
-4. Get your project settings (under the [firebase console](https://console.firebase.google.com) go to Settings -> Project Settings) and add the relevant configuration to the following file.
+## Authentication
 
-`/static/config/test.json`
+The sample app includes a lightweight email and password sign-in screen backed by Firebase Auth.
 
-```
-...
-        "firebase" : {
-            "apiKey": "your_api_key",
-            "authDomain": "your.firebaseapp.com",
-            "databaseURL": "https://your.firebaseio.com",
-            "projectId": "your-project-id",
-            "storageBucket": "your.appspot.com",
-            "messagingSenderId": "123456789012"
-        }
-...
-```
+If you want login to work end-to-end, make sure email and password sign-in is enabled in your Firebase console.
 
-5. Once you have configured as per above, run the following:
+## Testing
 
-`npm run deploy:test`
+Tests live under src/__tests__/ and use Jest with React Testing Library.
 
-## Deploying to a Firebase prod server
+Coverage output is written under the test coverage folder after running the test suite.
 
-- This template provides configuration for a firebase production server.
+## Notes on native targets
 
-1. First, create a new [Firebase](https://firebase.google.com) project.
-2. Make sure you have configured your signin method(s) on your Firebase project (under the [firebase console](https://console.firebase.google.com) go to Authentication -> Signin-Method). If you want use Firestore or Storage, make sure you have configured your access rights for them.
-3. Add the project id (found in your Firebase Project Settings) for your prod Firebase project under the `prod` field in `.firebaserc`:
+The web workflow has been verified as part of this refresh.
 
- 
-```
- {
-  "projects": {
-...
-    "prod": "prod-firebase-project",
-...
-  }
-}
-```
+Android and iOS support remain wired through Capacitor, but native IDE builds still depend on your local SDK setup and platform-specific signing configuration.
 
-4. Get your project settings (under the [firebase console](https://console.firebase.google.com) go to Settings -> Project Settings) and add the relevant configuration to the following file.
+## Future improvements
 
-`/static/config/prod.json`
+This repo is now on a modern, working base. A future cleanup could still migrate the remaining Firebase compatibility imports to the fully modular SDK.
 
-```
-...
-        "firebase" : {
-            "apiKey": "your_api_key",
-            "authDomain": "your.firebaseapp.com",
-            "databaseURL": "https://your.firebaseio.com",
-            "projectId": "your-project-id",
-            "storageBucket": "your.appspot.com",
-            "messagingSenderId": "123456789012"
-        }
-...
-```
+## License
 
-5. Once you have configured as per above, run the following:
-
-`npm run deploy:prod`
-
-<a name="sample-project"></a>
-
-# 7. Sample Project
-
-## Sample Components
-
-- `src/components/database/DatabaseView.tsx`: Simple data table connected to a Firebase Firestore database.
-- `src/components/database/DatabaseState.ts`: Database state.
-- `src/components/login/AccountMenu.tsx`: Simple account menu with a login link. Clicking the link will send the user to Login.tsx.
-- `src/components/login/Login.tsx`: Contains the FirebaseUI plain email/password login/sign up button.
-- `src/components/login/LoginState.ts`: Login state (contains unsubscribe functions).
-- `src/components/upload/Upload.tsx`: Simple upload connected to Firebase storage.
-- `src/components/upload/Upload.ts`: Upload state.
-- `src/App.tsx`: Main container with configured routes (with dev hot loader support).
-- `src/Home.tsx`: Simple home screen showing PATT service configuration and shakeout tests.
-- `index.tsx`: Index page with dev hot loader support.
-
-## Services
-
-- The included services are under the following directory: `/src/services/`. 
-- Note: Services are executed in the following order:
-
-    1. Configuation.ts
-    2. Messages.ts
-
-### Built in services:
-
-- Configuration.ts
-    - Configuration service supporting dev, test and prod configurations under `static/config/`;
-    - Messages.json are loaded via XHR Request (see Messages.ts)
-    - The dev, test and prod configuration is deployed with the relative npm script targets `npm deploy:<dev|test|prod>`
-    - Example usage:
-
-    ```
-    import {Configuration} from 'Configuration';
-
-    /* 
-        Get the storage bucket string from config.
-    */
-    
-    const storageBucket = Configuration.getConfig('firebase').storageBucket;
-
-    ```
-
-- Messages.ts
-
-    - Messages are loaded asynchonously from the server, see Configuration.configure();
-    - Example Usage:
-
-     ```
-    import {Messages} from 'Messages';
-
-    /* 
-        Get the message string from messages.json.
-    */
-  
-    const message = Messages.get("hello")
-
-    /* 
-        Get the message string from messages.json in en US locale
-    */
-
-    const message = Messages.get("hello","en_US");
-
-    /* 
-        Format a string with a variable
-    */
-
-    const message = Messages.format("Hello {0} you're {1}", ["PATT","ace"]);
-
-    //returns "Hello PATT you're ace"
- 
-    ```
-
-<a name="firebase-functions"></a>
-
-# 8. Adding firebase functions support
-
-- Firebase functions should be engineered in a different project/repository. If PATT is of interest we will consider releasing our firebase functions template, until then, here's a decent firebase TypeScript template to get you started:
-
-https://github.com/firebase/functions-samples/tree/master/typescript-getting-started
-
-
-
+MIT
 

@@ -1,4 +1,4 @@
-import {observable, computed} from "mobx";
+import { computed, makeObservable, observable } from "mobx";
 
 /**
  * Sample upload state
@@ -6,6 +6,10 @@ import {observable, computed} from "mobx";
 export class UploadStore {
 
     @observable public urls: string[] = [];
+
+    constructor() {
+        makeObservable(this);
+    }
 
     @computed get imageUrls() {
         return this.urls;
